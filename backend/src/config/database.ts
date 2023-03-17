@@ -1,6 +1,7 @@
 import 'dotenv/config';
+import Configuration from '../utils/types/config-database';
 
-const configurations = {
+const configuration: { [key: string]: Configuration }  = {
   development: {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
@@ -21,6 +22,6 @@ const configurations = {
     host: process.env.DB_HOST,
     logging: false,
   },
-};
+}
 
-// export default configurations[process.env.NODE_ENV];
+export default configuration[process.env.NODE_ENV ?? 'development'];
